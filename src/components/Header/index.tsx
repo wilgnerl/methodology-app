@@ -13,15 +13,18 @@ import {
   Divider,
   Checkbox,
   Center,
+  Container,
+  Text,
 } from '@chakra-ui/react'
 import { HamburgerIcon } from '@chakra-ui/icons'
 import React from 'react'
 import Link from 'next/link'
+
 export default function Header() {
   const { isOpen, onOpen, onClose } = useDisclosure()
   return (
     <>
-      <Flex w="100%" p="12" bgColor="orange.300">
+      <Flex w="100%" p="12" bgColor="orange.600">
         <IconButton
           aria-label=""
           bgColor="transparent"
@@ -35,9 +38,14 @@ export default function Header() {
           <HamburgerIcon />
         </IconButton>
         <Spacer />
-        <Heading color="white" fontSize="2xl" mr="16">
-          <Link href="/">Claire</Link>
-        </Heading>
+        <Link href="/">
+          <Container>
+            <Heading color="white" fontSize="3xl" mr="16" fontWeight="light">
+              claire.
+            </Heading>
+            <Text color="white">Evite burnout e desengajamento</Text>
+          </Container>
+        </Link>
       </Flex>
       <Drawer isOpen={isOpen} placement="left" onClose={onClose}>
         <DrawerOverlay />
@@ -58,7 +66,7 @@ export default function Header() {
               fontWeight="bold"
               colorScheme="green"
             >
-              <Link href="/day/1">Aula 1</Link>
+              <Link href="/day/1">Modulo 1</Link>
             </Checkbox>
             <Divider />
             <Checkbox
@@ -68,7 +76,7 @@ export default function Header() {
               fontWeight="bold"
               colorScheme="green"
             >
-              <Link href="/day/2">Aula 2</Link>
+              <Link href="/day/2">Modulo 2</Link>
             </Checkbox>
             <Divider />
             <Checkbox
@@ -78,7 +86,7 @@ export default function Header() {
               fontWeight="bold"
               colorScheme="green"
             >
-              <Link href="/day/3">Aula 3</Link>
+              <Link href="/day/3">Modulo 3</Link>
             </Checkbox>
             <Divider />
           </DrawerBody>

@@ -17,14 +17,15 @@ export default function Day1() {
           allowFullScreen
         />
       </AspectRatio>
+      <Heading>Módulo 1:</Heading>
       <Text>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex perferendis
-        voluptate reiciendis, repellendus alias adipisci magni nostrum unde
-        quos, error, libero ullam culpa quasi quaerat porro eveniet rem
-        doloremque. Aperiam. Lorem ipsum dolor sit amet consectetur adipisicing
-        elit. Error odio sint, distinctio dolores alias aperiam dolore veniam
-        sapiente eaque fugiat. Atque, sed consequuntur. Odio voluptatem commodi
-        error exercitationem aut impedit!
+        Ao iniciar cada Módulo (que terão duração de duas semanas), recomenda-se
+        seguir as agendas diárias e o formato que a metodologia é aplicada. A
+        agenda não seguirá uma ordem cronológica diária, portanto para cada
+        prática será direcionado o tempo para auto-reflexão e aplicação. É
+        importante lembrá-los da importância de responder os questionários com
+        seriedade para que os objetivos sejam atingidos. A cada vídeo publicado,
+        será disponibilizado um arquivo para acompanhamento individual.
       </Text>
     </Container>
   )
