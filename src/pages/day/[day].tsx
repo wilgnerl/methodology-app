@@ -13,7 +13,7 @@ export default function Day1() {
       <AspectRatio width="100%" ratio={2} mb="10">
         <iframe
           title="naruto"
-          src="https://www.youtube.com/embed/jzIZUzNyZvQ"
+          src="https://www.youtube.com/embed/ufXYbsIQ-LI"
           allowFullScreen
         />
       </AspectRatio>
