@@ -64,45 +64,50 @@ export default function Day({ content, contents }: any) {
                     <AccordionPanel pb={4}>
                       <Accordion allowMultiple>
                         <h2>
-                          {item.data.map((dataContent: any) => {
-                            // console.log(typeof dataContent.content)
-                            return (
-                              <AccordionItem key={uuidV4()}>
-                                <AccordionButton>
-                                  <AccordionIcon />
-                                  <Box
-                                    as="span"
-                                    flex="1"
-                                    textAlign="left"
-                                    fontSize="sm"
-                                  >
-                                    <strong>{dataContent.weekName}</strong>
-                                  </Box>
-                                </AccordionButton>
+                          {item.data
+                            .slice(0)
+                            .reverse()
+                            .map((dataContent: any) => {
+                              // console.log(typeof dataContent.content)
+                              return (
+                                <AccordionItem key={uuidV4()}>
+                                  <AccordionButton>
+                                    <AccordionIcon />
+                                    <Box
+                                      as="span"
+                                      flex="1"
+                                      textAlign="left"
+                                      fontSize="sm"
+                                    >
+                                      <strong>{dataContent.weekName}</strong>
+                                    </Box>
+                                  </AccordionButton>
 
-                                {dataContent.content.map((x: any) => {
-                                  // console.log(x)
-                                  return (
-                                    <AccordionPanel pb={4} key={uuidV4()}>
-                                      <Checkbox
-                                        pt={1}
-                                        pb={1}
-                                        pl={8}
-                                        size="md"
-                                        colorScheme="green"
-                                        key={uuidV4()}
-                                        flex="1"
-                                      >
-                                        <Link href={`/day/${x.id}`}>
-                                          <Text>{x.text.children[0].text}</Text>
-                                        </Link>
-                                      </Checkbox>
-                                    </AccordionPanel>
-                                  )
-                                })}
-                              </AccordionItem>
-                            )
-                          })}
+                                  {dataContent.content.map((x: any) => {
+                                    // console.log(x)
+                                    return (
+                                      <AccordionPanel pb={4} key={uuidV4()}>
+                                        <Checkbox
+                                          pt={1}
+                                          pb={1}
+                                          pl={8}
+                                          size="md"
+                                          colorScheme="green"
+                                          key={uuidV4()}
+                                          flex="1"
+                                        >
+                                          <Link href={`/day/${x.id}`}>
+                                            <Text>
+                                              {x.text.children[0].text}
+                                            </Text>
+                                          </Link>
+                                        </Checkbox>
+                                      </AccordionPanel>
+                                    )
+                                  })}
+                                </AccordionItem>
+                              )
+                            })}
                         </h2>
                       </Accordion>
                     </AccordionPanel>
@@ -199,6 +204,14 @@ export async function getServerSideProps({ params }: any) {
           content: [content],
         })
       }
+    })
+
+    Object.values(transformedData).forEach((module: any) => {
+      module.data.forEach((week: any) => {
+        week.content.sort((a: any, b: any) =>
+          a.text.children[0].text.localeCompare(b.text.children[0].text),
+        )
+      })
     })
 
     const result = Object.values(transformedData)
